@@ -1,65 +1,59 @@
 import { Link, useLocation } from "react-router-dom";
-import { Rocket, Star } from "lucide-react";
+import { Heart, ArrowLeft } from "lucide-react";
 import { useFavorites } from "@/context/FavoritesContext";
+import { Button } from "@/components/ui/button";
 
 export function Header() {
   const location = useLocation();
   const { favorites } = useFavorites();
+  const isFavoritesPage = location.pathname === "/favorites";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link to="/starships" className="flex items-center gap-3 group">
-          <div className="relative">
-            <Rocket className="h-7 w-7 text-primary transition-transform duration-300 group-hover:rotate-12" />
-            <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+    <header className="w-full py-4">
+      <div className="container flex items-center justify-between">
+        <Link to="/starships" className="flex items-center gap-2">
+          <div className="w-10 h-10 flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2L20 12L30 14L22 22L24 32L16 26L8 32L10 22L2 14L12 12L16 2Z" fill="url(#star-gradient)" />
+              <defs>
+                <linearGradient id="star-gradient" x1="2" y1="2" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#FF6871" />
+                  <stop offset="1" stopColor="#FFC22B" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
-          <span className="font-display text-lg md:text-xl font-bold text-foreground tracking-wider">
-            STARSHIP <span className="text-primary text-glow">REGISTRY</span>
-          </span>
         </Link>
 
-        <nav className="flex items-center gap-2 md:gap-4">
-          <Link
-            to="/starships"
-            className={`relative px-3 py-2 md:px-4 font-medium text-sm md:text-base transition-all duration-300 rounded-lg ${
-              location.pathname === "/starships"
-                ? "text-primary"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
+        {!isFavoritesPage && (
+          <Button
+            asChild
+            variant="outline"
+            className="gap-2 border-primary text-primary hover:bg-primary/10 rounded-full px-5"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              <Rocket className="h-4 w-4" />
-              <span className="hidden sm:inline">Starships</span>
-            </span>
-            {location.pathname === "/starships" && (
-              <span className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/30" />
-            )}
-          </Link>
-
-          <Link
-            to="/favorites"
-            className={`relative px-3 py-2 md:px-4 font-medium text-sm md:text-base transition-all duration-300 rounded-lg ${
-              location.pathname === "/favorites"
-                ? "text-primary"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <Star className="h-4 w-4" />
-              <span className="hidden sm:inline">Favorites</span>
-              {favorites.length > 0 && (
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
-                  {favorites.length}
-                </span>
-              )}
-            </span>
-            {location.pathname === "/favorites" && (
-              <span className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/30" />
-            )}
-          </Link>
-        </nav>
+            <Link to="/favorites">
+              <Heart className="h-4 w-4" />
+              View Favorites
+            </Link>
+          </Button>
+        )}
       </div>
     </header>
+  );
+}
+
+export function PageTitle({ title, showBack = false }: { title: string; showBack?: boolean }) {
+  return (
+    <div className="flex items-center gap-3 mb-6">
+      {showBack && (
+        <Link
+          to="/starships"
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </Link>
+      )}
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground">{title}</h1>
+    </div>
   );
 }
