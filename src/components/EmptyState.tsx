@@ -1,9 +1,9 @@
-import { Star, Rocket } from "lucide-react";
+import { Heart, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 interface EmptyStateProps {
-  type: "favorites" | "error";
+  type: "favorites" | "error" | "no-results";
   message?: string;
 }
 
@@ -11,20 +11,14 @@ export function EmptyState({ type, message }: EmptyStateProps) {
   if (type === "favorites") {
     return (
       <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
-        <div className="relative mb-6">
-          <Star className="h-20 w-20 text-muted-foreground/30" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Star className="h-12 w-12 text-primary/50 animate-pulse" />
-          </div>
-        </div>
-        <h2 className="font-display text-2xl font-bold text-foreground mb-2">
+        <Heart className="h-16 w-16 text-muted-foreground/30 mb-4" />
+        <h2 className="text-xl font-bold text-foreground mb-2">
           No Favorites Yet
         </h2>
         <p className="text-muted-foreground max-w-md mb-6">
-          Start exploring the galaxy and add some starships to your favorites
-          collection. Your favorites will appear here.
+          Start exploring and add some starships to your favorites collection.
         </p>
-        <Button asChild size="lg" className="gap-2">
+        <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
           <Link to="/starships">
             <Rocket className="h-4 w-4" />
             Browse Starships
@@ -34,21 +28,31 @@ export function EmptyState({ type, message }: EmptyStateProps) {
     );
   }
 
+  if (type === "no-results") {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+        <Rocket className="h-16 w-16 text-muted-foreground/30 mb-4" />
+        <h2 className="text-xl font-bold text-foreground mb-2">
+          No Results Found
+        </h2>
+        <p className="text-muted-foreground max-w-md">
+          {message || "Try adjusting your search terms."}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
-      <div className="relative mb-6">
-        <Rocket className="h-20 w-20 text-destructive/30" />
-      </div>
-      <h2 className="font-display text-2xl font-bold text-foreground mb-2">
+      <Rocket className="h-16 w-16 text-destructive/30 mb-4" />
+      <h2 className="text-xl font-bold text-foreground mb-2">
         Something Went Wrong
       </h2>
       <p className="text-muted-foreground max-w-md mb-6">
-        {message ||
-          "Failed to load starships. Please check your connection and try again."}
+        {message || "Failed to load starships. Please try again."}
       </p>
       <Button
         variant="outline"
-        size="lg"
         onClick={() => window.location.reload()}
       >
         Try Again
