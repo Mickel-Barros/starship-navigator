@@ -2,23 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <title>Starship Registry | Star Wars Starship Database</title>
+    <meta name="description" content="Explore the complete database of starships from the Star Wars universe. Browse specifications, compare vessels, and save your favorites." />
+    <meta name="keywords" content="Star Wars, Starships, SWAPI, Star Wars API, Millennium Falcon, X-Wing" />
+    <link rel="canonical" href="https://starship-registry.lovable.app" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Starship Registry | Star Wars Starship Database" />
+    <meta property="og:description" content="Explore the complete database of starships from the Star Wars universe." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
+    
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:site" content="@StarshipRegistry" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Starship Registry",
+      "description": "A comprehensive database of Star Wars starships",
+      "applicationCategory": "Entertainment"
+    }
+    </script>
   </head>
-
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
