@@ -6,7 +6,16 @@ Futuristic, interactive **starship navigation** web app built with **React**, **
 🚀 Tech Stack
 -------------
 
-LayerTechnologyPurposeFrameworkReact 18 + ViteSPA rendering & bundlingLanguageTypeScriptType safetyStylingTailwind CSSUtility-first stylingUI Componentsshadcn/uiAccessible reusable componentsFormsReact Hook Form + ZodForm handling & validationIconsLucide ReactIcons & symbolsPackage ManagerpnpmFast dependency management
+| Layer           | Technology            | Purpose                        |
+| --------------- | --------------------- | ------------------------------ |
+| Framework       | React 18 + Vite       | SPA rendering & bundling       |
+| Language        | TypeScript            | Type safety                    |
+| Styling         | Tailwind CSS          | Utility-first styling          |
+| UI Components   | shadcn/ui             | Accessible reusable components |
+| Forms           | React Hook Form + Zod | Form handling & validation     |
+| Icons           | Lucide React          | Icons & symbols                |
+| Package Manager | pnpm                  | Fast dependency management     |
+
 
 ⚡ Features
 ----------
@@ -25,14 +34,23 @@ LayerTechnologyPurposeFrameworkReact 18 + ViteSPA rendering & bundlingLanguageTy
 🏗 Project Structure
 --------------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   starship-navigator-main/  ├─ public/                 # Static assets  ├─ src/  │  ├─ components/          # UI & custom components  │  │  ├─ ui/               # shadcn/ui primitives  │  │  └─ custom/           # Domain-specific components  │  ├─ hooks/               # Reusable React hooks  │  ├─ pages/               # Screens/views  │  ├─ styles/              # Tailwind/global styles  │  ├─ lib/                 # Utilities & helpers  │  ├─ types/               # TypeScript types  │  ├─ App.tsx  │  └─ main.tsx  ├─ tailwind.config.ts  ├─ vite.config.ts  └─ package.json   `
-
-🎨 Screens & Components
------------------------
-
-Page / ComponentDescriptionScreenshot / PreviewHome / DashboardStar system overview & navigation panelNavigation MapInteractive star mapShip Status PanelShip health, fuel, and coordinatesSettings ModalAdjust theme, controls, and preferences
-
-> Screenshots are placeholders; replace with actual app screenshots.
+starship-navigator-main/
+├─ public/                 # Static assets
+├─ src/
+│  ├─ components/          # UI & custom components
+│  │  ├─ ui/               # shadcn/ui primitives
+│  │  └─ custom/           # Domain-specific components
+│  ├─ hooks/               # Reusable React hooks
+│  ├─ pages/               # Screens/views
+│  ├─ styles/              # Tailwind/global styles
+│  ├─ lib/                 # Utilities & helpers
+│  ├─ types/               # TypeScript types
+│  ├─ App.tsx
+│  └─ main.tsx
+├─ tailwind.config.ts
+├─ vite.config.ts
+└─ package.json
+ `
 
 🧩 Component Design
 -------------------
@@ -52,7 +70,7 @@ Page / ComponentDescriptionScreenshot / PreviewHome / DashboardStar system overv
 *   Forms: React Hook Form + Zod
     
 
-> No global state library used — keeps complexity minimal
+> No global state library used, keeps complexity minimal
 
 🎨 Styling & Theming
 --------------------
@@ -69,16 +87,29 @@ Page / ComponentDescriptionScreenshot / PreviewHome / DashboardStar system overv
 🔄 Data Flow
 ------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   User Action     ↓  Component Event Handler     ↓  State Update / Hook     ↓  UI Re-render   `
+User Action
+   ↓
+Component Event Handler
+   ↓
+State Update / Hook
+   ↓
+UI Re-render
+  `
 
 Unidirectional React data flow ensures predictable UI behavior.
 
 ⚡ Development
 -------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # Install dependencies  pnpm install  # Start dev server with hot reload  pnpm dev  # Build production bundle  pnpm build  # Preview production build  pnpm preview   `
+# Install dependencies
+npm install
 
-> Deploy static files to **Vercel**, **Netlify**, or **GitHub Pages**.
+# Start dev server with hot reload
+npm run dev
+
+# Build production bundle
+npm run build
+
 
 🔮 Future Enhancements
 ----------------------
@@ -107,4 +138,4 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 ✅ Summary
 ---------
 
-Starship Navigator is a modern SPA built with **React**, **TypeScript**, and **Tailwind**, emphasizing modularity, responsiveness, and maintainability.It’s a strong foundation for interactive, futuristic UI experiences with easy extensibility for future features.
+Starship Navigator is a modern SPA built with **React**, **TypeScript**, and **Tailwind**, emphasizing modularity, responsiveness, and maintainability. It’s a strong foundation for interactive, futuristic UI experiences with easy extensibility for future features.
