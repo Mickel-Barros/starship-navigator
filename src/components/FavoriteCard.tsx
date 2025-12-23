@@ -19,7 +19,6 @@ export function FavoriteCard({ starship, index = 0 }: FavoriteCardProps) {
     removeFavorite(starship.url);
   };
 
-  // Calculate rating based on hyperdrive_rating
   const getStarRating = () => {
     const hyperdrive = parseFloat(starship.hyperdrive_rating);
     if (isNaN(hyperdrive)) return 4;
@@ -43,7 +42,6 @@ export function FavoriteCard({ starship, index = 0 }: FavoriteCardProps) {
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex flex-col md:flex-row">
-        {/* Content */}
         <div className="flex-1 p-4 order-2 md:order-1">
           <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">
             {starship.name}
@@ -57,8 +55,6 @@ export function FavoriteCard({ starship, index = 0 }: FavoriteCardProps) {
           <p className="text-sm text-foreground mb-4">
             Passengers: {getPassengers()}
           </p>
-          
-          {/* Notes */}
           <div className="bg-muted rounded-lg p-3">
             <Textarea
               placeholder="I love the design on this one! 🚀"
@@ -68,8 +64,6 @@ export function FavoriteCard({ starship, index = 0 }: FavoriteCardProps) {
             />
           </div>
         </div>
-
-        {/* Image */}
         <div className="relative w-full md:w-36 h-32 md:h-auto order-1 md:order-2">
           <img
             src={starshipImage}

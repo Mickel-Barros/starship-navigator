@@ -23,11 +23,9 @@ export function StarshipCard({ starship, index = 0 }: StarshipCardProps) {
     }
   };
 
-  // Calculate rating based on hyperdrive_rating
   const getStarRating = () => {
     const hyperdrive = parseFloat(starship.hyperdrive_rating);
     if (isNaN(hyperdrive)) return 4;
-    // Lower hyperdrive rating is better, so invert for stars
     if (hyperdrive <= 1) return 5;
     if (hyperdrive <= 2) return 4;
     if (hyperdrive <= 3) return 3;
@@ -48,7 +46,6 @@ export function StarshipCard({ starship, index = 0 }: StarshipCardProps) {
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex flex-col md:flex-row">
-        {/* Content */}
         <div className="flex-1 p-4 order-2 md:order-1">
           <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">
             {starship.name}
@@ -64,25 +61,44 @@ export function StarshipCard({ starship, index = 0 }: StarshipCardProps) {
           </p>
         </div>
 
-        {/* Image */}
-        <div className="relative w-full md:w-36 h-32 md:h-auto order-1 md:order-2">
-          <img
-            src={starshipImage}
-            alt={starship.name}
-            className="w-full h-full object-cover"
-          />
-          <button
-            onClick={handleToggleFavorite}
-            className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full bg-background/50 backdrop-blur-sm transition-all hover:scale-110"
-          >
-            <Heart
-              className={`h-5 w-5 transition-colors ${
-                isFav
-                  ? "fill-heart text-heart"
-                  : "fill-transparent text-foreground/70"
-              }`}
+        <div className="relative w-full md:w-40 lg:w-44 order-1 md:order-2">
+          <div className="relative rounded-lg overflow-hidden bg-zinc-900/50 border border-zinc-700/50">
+            <img
+              src={starshipImage}
+              alt={starship.name}
+              className="w-full h-40 md:h-44 object-cover"
             />
-          </button>
+            {/* Botão de favorito */}
+            <button
+              onClick={handleToggleFavorite}
+              className={`
+                absolute top-2 right-2
+                w-10 h-10
+                flex items-center justify-center
+                rounded-full
+                transition-all duration-300
+                ${
+                  isFav
+                    ? "bg-[#FF6871] shadow-[0_0_15px_rgba(255,104,113,0.6)]"
+                    : "bg-black/70 backdrop-blur-md border border-zinc-600"
+                }
+                hover:scale-110 active:scale-95
+              `}
+            >
+              <Heart
+                className={`
+                  h-5 w-5
+                  transition-all
+                  ${
+                    isFav
+                      ? "fill-white text-white"
+                      : "fill-none text-[#FF6871]"
+                  }
+                `}
+                strokeWidth={1.8}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

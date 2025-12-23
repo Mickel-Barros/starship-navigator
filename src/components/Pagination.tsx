@@ -18,83 +18,97 @@ export function Pagination({
   hasNext,
   isLoading,
 }: PaginationProps) {
-  const getVisiblePages = () => {
-    const pages: (number | string)[] = [];
-    
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-    } else {
-      pages.push(1);
-      
-      if (currentPage > 3) {
-        pages.push("...");
-      }
-      
-      for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
-        if (!pages.includes(i)) {
-          pages.push(i);
-        }
-      }
-      
-      if (currentPage < totalPages - 2) {
-        pages.push("...");
-      }
-      
-      if (!pages.includes(totalPages)) {
-        pages.push(totalPages);
-      }
-    }
-    
+const getVisiblePages = () => {
+  const pages: (number | string)[] = [];
+
+  if (totalPages <= 3) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
     return pages;
-  };
+  }
+
+  let start = currentPage - 1;
+  let end = currentPage + 1;
+
+  if (currentPage <= 2) {
+    start = 1;
+    end = 3;
+  }
+
+  if (currentPage >= totalPages - 1) {
+    start = totalPages - 2;
+    end = totalPages;
+  }
+
+  if (start > 1) pages.push("...");
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+
+  if (end < totalPages) pages.push("...");
+
+  return pages;
+};
+
+
 
   return (
-    <div className="flex items-center justify-center gap-2 py-8">
+    <div className="flex items-center justify-center gap-4 py-8 text-sm">
       <Button
         variant="ghost"
         size="sm"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={!hasPrevious || isLoading}
-        className="gap-1 text-muted-foreground hover:text-foreground disabled:opacity-30"
-      >
+        className="
+                  flex items-center gap-2
+                  text-white/80
+                  px-4 py-2
+                  rounded-lg
+                  hover:bg-white/10
+                  disabled:opacity-40
+                "      >
         <ChevronLeft className="h-4 w-4" />
         Previous
       </Button>
 
-      <div className="flex items-center gap-1 mx-2">
+      <div className="flex items-center gap-3">
         {getVisiblePages().map((page, index) =>
           typeof page === "number" ? (
-            <Button
+            <button
               key={index}
-              variant={page === currentPage ? "default" : "ghost"}
-              size="sm"
               onClick={() => onPageChange(page)}
               disabled={isLoading}
-              className={`w-8 h-8 p-0 ${
+              className={`w-8 h-8 flex items-center justify-center rounded-md transition-colors ${
                 page === currentPage
-                  ? "bg-secondary text-foreground"
+                  ? "border border-muted-foreground text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {page}
-            </Button>
+            </button>
           ) : (
-            <span key={index} className="px-1 text-muted-foreground">
-              {page}
+            <span
+              key={index}
+              className="text-muted-foreground select-none"
+            >
+              …
             </span>
           )
         )}
       </div>
-
       <Button
         variant="ghost"
         size="sm"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={!hasNext || isLoading}
-        className="gap-1 text-muted-foreground hover:text-foreground disabled:opacity-30"
-      >
+        className="
+          flex items-center gap-2
+          text-white/80
+          px-4 py-2
+          rounded-lg
+          hover:bg-white/10
+          disabled:opacity-40
+        ">
         Next
         <ChevronRight className="h-4 w-4" />
       </Button>

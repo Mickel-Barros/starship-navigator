@@ -6,7 +6,6 @@ interface StarRatingProps {
 }
 
 export function StarRating({ rating = 4, maxRating = 5 }: StarRatingProps) {
-  // Generate a consistent rating based on hyperdrive rating or default to 4
   const fullStars = Math.min(Math.max(Math.round(rating), 1), maxRating);
 
   return (

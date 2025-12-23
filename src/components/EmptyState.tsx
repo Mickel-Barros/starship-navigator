@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 interface EmptyStateProps {
   type: "favorites" | "error" | "no-results";
   message?: string;
+  action?: {
+    label: string;
+    onClick: () => void;
+  };
 }
 
 export function EmptyState({ type, message }: EmptyStateProps) {

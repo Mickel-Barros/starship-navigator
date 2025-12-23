@@ -3,33 +3,39 @@ import { useStarships } from "@/hooks/useStarships";
 import { Header, PageTitle } from "@/components/Header";
 import { SearchBar } from "@/components/SearchBar";
 import { StarshipCard } from "@/components/StarshipCard";
-import { Pagination } from "@/components/Pagination";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { EmptyState } from "@/components/EmptyState";
 import { MobileNav } from "@/components/MobileNav";
+import { Pagination } from "@/components/Pagination";
+
+const ITEMS_PER_PAGE = 10;
 
 export default function StarshipsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const { data, isLoading, isError, error } = useStarships(currentPage);
+  const { data, isLoading, isError, error } = useStarships();
 
-  const totalPages = data ? Math.ceil(data.count / 10) : 0;
+const filteredStarships = useMemo(() => {
+  const starships = data as any;
 
-  const filteredStarships = useMemo(() => {
-    if (!data?.results) return [];
-    if (!searchQuery.trim()) return data.results;
-    
-    return data.results.filter(
-      (starship) =>
-        starship.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        starship.manufacturer.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }, [data?.results, searchQuery]);
+  if (!starships) return [];
+  if (!searchQuery.trim()) return starships;
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  return starships.filter(
+    (starship) =>
+      starship.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      starship.manufacturer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+}, [data, searchQuery]);
+
+
+  const totalPages = Math.ceil(filteredStarships.length / ITEMS_PER_PAGE);
+
+  const paginatedStarships = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    return filteredStarships.slice(start, end);
+  }, [filteredStarships, currentPage]);
 
   return (
     <div className="min-h-screen flex flex-col pb-20 md:pb-0">
@@ -54,16 +60,16 @@ export default function StarshipsPage() {
           />
         )}
 
-        {data && !isLoading && (
+        {!isLoading && data && (
           <>
-            {filteredStarships.length === 0 ? (
+            {paginatedStarships.length === 0 ? (
               <EmptyState
                 type="no-results"
                 message="No starships found matching your search."
               />
             ) : (
               <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
-                {filteredStarships.map((starship, index) => (
+                {paginatedStarships.map((starship, index) => (
                   <StarshipCard
                     key={starship.url}
                     starship={starship}
@@ -72,17 +78,19 @@ export default function StarshipsPage() {
                 ))}
               </div>
             )}
-
-            {!searchQuery && (
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-                hasPrevious={!!data.previous}
-                hasNext={!!data.next}
-                isLoading={isLoading}
-              />
-            )}
+            {totalPages > 1 && (
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={(page) => {
+                      setCurrentPage(page);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    hasPrevious={currentPage > 1}
+                    hasNext={currentPage < totalPages}
+                    isLoading={isLoading}
+                  />
+                )}
           </>
         )}
       </main>
