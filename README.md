@@ -33,7 +33,7 @@ Futuristic, interactive **starship navigation** web app built with **React**, **
 
 🏗 Project Structure
 --------------------
-`
+```txt
 starship-navigator-main/
 ├─ public/                 # Static assets
 ├─ src/
@@ -50,7 +50,7 @@ starship-navigator-main/
 ├─ tailwind.config.ts
 ├─ vite.config.ts
 └─ package.json
- `
+ ```
 
 🧩 Component Design
 -------------------
