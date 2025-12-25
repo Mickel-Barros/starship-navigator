@@ -95,17 +95,16 @@ User Action > Component Event Handler > State Update / Hook > UI Re-render
 -------------
 
 *  Install dependencies
-npm install
-
+`npm install`
 *  Start dev server with hot reload
-npm run dev
+``npm run dev``
 
 *  Build production bundle
-npm run build
+``npm run build``
 
 *  Docker
-docker build -t starship-navigator 
-docker run -p 8080:80 starship-navigator
+``docker build -t starship-navigator ``
+``docker run -p 8080:80 starship-navigator``
 
 🔮 Future Enhancements
 ----------------------
