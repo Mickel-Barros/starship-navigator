@@ -33,7 +33,7 @@ Futuristic, interactive **starship navigation** web app built with **React**, **
 
 🏗 Project Structure
 --------------------
-
+`
 starship-navigator-main/
 ├─ public/                 # Static assets
 ├─ src/
