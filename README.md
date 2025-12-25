@@ -58,14 +58,13 @@ This project uses **Vitest** as the testing framework for unit and component tes
 
 ### Running Tests
 
-# Run all tests once
+- Run all tests once
+
 npm run test
 
-# Run in watch mode (great for development)
-npm run test:watch
+- Run with coverage report
 
-# Run with coverage report
-npm run test:coverage
+npm run test coverage
 
 
 🧩 Component Design
