@@ -58,7 +58,6 @@ This project uses **Vitest** as the testing framework for unit and component tes
 
 ### Running Tests
 
-```bash
 # Run all tests once
 npm run test
 
