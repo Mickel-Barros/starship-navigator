@@ -60,12 +60,11 @@ This project uses **Vitest** as the testing framework for unit and component tes
 
 - Run all tests once
 
-npm run test
+``npm run test``
 
 - Run with coverage report
 
-npm run test coverage
-
+``npm run test coverage``
 
 🧩 Component Design
 -------------------
