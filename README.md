@@ -20,15 +20,15 @@ Futuristic, interactive **starship navigation** web app built with **React**, **
 ⚡ Features
 ----------
 
-*   **Interactive Star Maps** – Navigate visually through star systems
+*   **Interactive Star Maps** - Navigate visually through star systems
     
-*   **Modular Components** – Reusable UI primitives & custom features
+*   **Modular Components** - Reusable UI primitives & custom features
     
-*   **Responsive Design** – Works on desktop and mobile
+*   **Responsive Design** - Works on desktop and mobile
     
-*   **Type-Safe Forms** – React Hook Form + Zod
+*   **Type-Safe Forms** - React Hook Form + Zod
     
-*   **SPA Performance** – Optimized with Vite
+*   **SPA Performance** - Optimized with Vite
     
 
 🏗 Project Structure
@@ -108,6 +108,7 @@ User Action > Component Event Handler > State Update / Hook > UI Re-render
 *  Docker
 
 ``docker build -t starship-navigator ``
+
 ``docker run -p 8080:80 starship-navigator``
 
 🔮 Future Enhancements
