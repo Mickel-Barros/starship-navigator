@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { StarRating } from '@/components/StarRating';
+import React from 'react';
+
 
 describe('StarRating component', () => {
   it('renders default rating (4) with 5 stars', () => {

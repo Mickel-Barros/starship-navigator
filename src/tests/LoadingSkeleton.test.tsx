@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { LoadingSkeleton } from '@/components/LoadingSkeleton';
+import React from 'react';
+
 
 vi.mock('@/components/ui/skeleton', () => ({
   Skeleton: (props: { className?: string }) => (

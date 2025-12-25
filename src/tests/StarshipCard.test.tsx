@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { StarshipCard } from '@/components/StarshipCard';
 import { useFavorites } from '@/context/FavoritesContext';
+import React from 'react';
 import { FavoriteStarship } from '@/types/starship';
 
 vi.mock('@/context/FavoritesContext', () => ({

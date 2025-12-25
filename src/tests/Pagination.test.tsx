@@ -1,6 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Pagination } from '@/components/Pagination';
+import React from 'react';
+
 
 describe('Pagination component', () => {
   it('renders Previous and Next buttons', () => {

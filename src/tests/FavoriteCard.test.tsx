@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { FavoriteCard } from '@/components/FavoriteCard';
 import { useFavorites } from '@/context/FavoritesContext';
 import { FavoriteStarship } from '@/types/starship';
+import React from 'react';
+
 
 vi.mock('@/context/FavoritesContext', () => ({
   useFavorites: vi.fn(),

@@ -2,6 +2,8 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Header, PageTitle } from '@/components/Header';
+import React from 'react';
+
 
 vi.mock('@/context/FavoritesContext', () => ({
   useFavorites: () => ({

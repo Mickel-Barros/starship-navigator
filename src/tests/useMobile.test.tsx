@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { useIsMobile } from '@/hooks/useMobile';
+import React from 'react';
 
 describe('use-m,obile hook', () => {
   let addEventListenerSpy: any;

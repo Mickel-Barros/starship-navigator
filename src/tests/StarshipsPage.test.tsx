@@ -3,12 +3,10 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import StarshipsPage from '@/pages/StarshipsPage';
 
-// 🔹 mock do hook
 vi.mock('@/hooks/useStarships', () => ({
   useStarships: vi.fn(),
 }));
 
-// 🔹 mocks de componentes visuais
 vi.mock('@/components/Header', () => ({
   Header: () => <div data-testid="header" />,
   PageTitle: ({ title }: { title: string }) => <h1>{title}</h1>,

@@ -19,7 +19,7 @@ export interface Starship {
   url: string;
 }
 
-export interface StarshipsResponse {
+export interface StarshipsResponse extends Array<Starship> {
   count: number;
   next: string | null;
   previous: string | null;

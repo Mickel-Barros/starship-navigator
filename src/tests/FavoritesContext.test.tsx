@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { FavoritesProvider, useFavorites } from '@/context/FavoritesContext';
 import { Starship } from '@/types/starship';
+import React from 'react';
 import { describe, it, expect, beforeEach } from 'vitest';
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (

@@ -3,6 +3,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useStarships } from "@/hooks/useStarships";
 import { rateLimit } from "@/lib/rateLimiter";
+import React from 'react';
 
 vi.mock("@/lib/rateLimiter", () => ({
   rateLimit: vi.fn(),

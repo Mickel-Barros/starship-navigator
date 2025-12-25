@@ -16,7 +16,7 @@ export default function StarshipsPage() {
   const { data, isLoading, isError, error } = useStarships();
 
 const filteredStarships = useMemo(() => {
-  const starships = data as any;
+  const starships = data;
 
   if (!starships) return [];
   if (!searchQuery.trim()) return starships;

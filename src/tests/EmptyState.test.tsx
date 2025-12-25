@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { EmptyState } from '@/components/EmptyState';
+import React from 'react';
 
 describe('EmptyState component', () => {
   it('renders favorites empty state correctly', () => {
