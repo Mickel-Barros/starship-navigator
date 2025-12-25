@@ -84,7 +84,7 @@ This project uses **Vitest** as the testing framework for unit and component tes
 *   Forms: React Hook Form + Zod
     
 
-> No global state library used, keeps complexity minimal
+`` No global state library used, keeps complexity minimal``
 
 🎨 Styling & Theming
 --------------------
