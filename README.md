@@ -89,7 +89,7 @@ starship-navigator-main/
 
 User Action > Component Event Handler > State Update / Hook > UI Re-render
 
-- Unidirectional React data flow ensures predictable UI behavior.
+`Unidirectional React data flow ensures predictable UI behavior.`
 
 ⚡ Development
 -------------
