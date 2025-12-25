@@ -52,6 +52,23 @@ starship-navigator-main/
 └─ package.json
  ```
 
+## 🧪 Tests
+
+This project uses **Vitest** as the testing framework for unit and component tests, combined with **React Testing Library** for React component testing and **@testing-library/user-event** for realistic user interaction simulation.
+
+### Running Tests
+
+```bash
+# Run all tests once
+npm run test
+
+# Run in watch mode (great for development)
+npm run test:watch
+
+# Run with coverage report
+npm run test:coverage
+
+
 🧩 Component Design
 -------------------
 
