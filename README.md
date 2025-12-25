@@ -55,7 +55,7 @@ starship-navigator-main/
 🧩 Component Design
 -------------------
 
-*   **UI Components**: Stateless, reusable, accessible (Buttons, Dropdowns, Modals, Forms)
+*   **UI Components**: Stateless, reusable, accessible
     
 *   **Custom Components**: Composes UI primitives into app-specific features, handling local state and interactions
     
@@ -101,15 +101,18 @@ Unidirectional React data flow ensures predictable UI behavior.
 ⚡ Development
 -------------
 
-# Install dependencies
+*  Install dependencies
 npm install
 
-# Start dev server with hot reload
+*  Start dev server with hot reload
 npm run dev
 
-# Build production bundle
+*  Build production bundle
 npm run build
 
+*  Docker
+docker build -t starship-navigator 
+docker run -p 8080:80 starship-navigator
 
 🔮 Future Enhancements
 ----------------------
@@ -119,9 +122,7 @@ npm run build
 *   Real-time star system data visualization
     
 *   Persistent user settings
-    
-*   3D star map rendering
-    
+        
 *   Dark/light mode toggle
     
 
